@@ -56,6 +56,8 @@ RUN set -eux \
     libtinfo6 \
     libreadline8 \
     libssh-4 \
+    telnet \
+    iputils-ping \
     && rm -rf /var/lib/apt/lists/* /var/log/*
 
 EXPOSE 179/tcp
