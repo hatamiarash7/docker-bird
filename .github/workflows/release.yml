@@ -46,7 +46,7 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm64/v8
           build-args: |
-            APP_VERSION=${{ steps.slug.outputs.version }}
+            BIRD_VERSION=${{ steps.slug.outputs.version }}
           tags: |
             hatamiarash7/bird:${{ steps.slug.outputs.version }}
             hatamiarash7/bird:latest
