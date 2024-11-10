@@ -34,6 +34,7 @@ RUN set -eux \
 FROM debian:bookworm-slim
 
 ARG BIRD_VERSION
+ARG DATE_CREATED
 ENV DEBIAN_FRONTEND=noninteractive
 
 LABEL org.opencontainers.image.title="bird" \
@@ -43,7 +44,7 @@ LABEL org.opencontainers.image.title="bird" \
     org.opencontainers.image.vendor="hatamiarash7" \
     org.opencontainers.image.author="hatamiarash7" \
     org.opencontainers.version="$BIRD_VERSION" \
-    org.opencontainers.image.created="$(date --iso-8601=seconds)" \
+    org.opencontainers.image.created="$DATE_CREATED" \
     org.opencontainers.image.licenses="MIT"
 
 COPY --from=builder /usr/sbin/bird* /usr/sbin/

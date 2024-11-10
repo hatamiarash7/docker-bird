@@ -26,6 +26,10 @@ jobs:
         uses: gacts/github-slug@v1
         id: slug
 
+      - name: Get Current Date
+        id: date
+        run: echo "date=$(date --iso-8601=seconds)" >> $GITHUB_OUTPUT
+
       - name: Setup QEMU
         uses: docker/setup-qemu-action@v3
 
@@ -47,6 +51,7 @@ jobs:
           platforms: linux/amd64,linux/arm64/v8
           build-args: |
             BIRD_VERSION=${{ steps.slug.outputs.version }}
+            DATE_CREATED=${{ steps.date.outputs.date }}
           tags: |
             hatamiarash7/bird:${{ steps.slug.outputs.version }}
             hatamiarash7/bird:latest
